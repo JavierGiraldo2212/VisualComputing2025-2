@@ -80,6 +80,12 @@ transform = np.dot(trans_matrix, np.dot(scale_matrix, rot_matrix))
 - Aislamiento con `pushMatrix()` y `popMatrix()`
 - Animación basada en `frameCount` y funciones trigonométricas
 
+#### Demostración:
+<video width="600" controls>
+  <source src="Videos/processing2D.mp4" type="video/mp4">
+  Tu navegador no soporta videos HTML5.
+</video>
+
 #### Código destacado:
 ```processing
 void draw() {
@@ -115,6 +121,12 @@ void draw() {
 - Rotaciones en múltiples ejes (`rotateX()`, `rotateY()`)
 - Movimiento en profundidad (eje Z)
 - Iluminación para visualización 3D
+
+#### Demostración:
+<video width="600" controls>
+  <source src="Videos/processing3D.mp4" type="video/mp4">
+  Tu navegador no soporta videos HTML5.
+</video>
 
 #### Código destacado:
 ```processing
@@ -161,6 +173,13 @@ Implementación moderna usando React Three Fiber que proporciona un enfoque decl
 - Escalado temporal con `Math.sin()`
 - OrbitControls para navegación
 - Ayudantes visuales (ejes y grid)
+
+#### Demostración:
+<!-- Video del proyecto Three.js - agregar cuando esté disponible -->
+<video width="600" controls>
+  <source src="Videos/threejs.mp4" type="video/mp4">
+  Tu navegador no soporta videos HTML5.
+</video>
 
 #### Código destacado:
 ```jsx
