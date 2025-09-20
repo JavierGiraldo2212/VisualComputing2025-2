@@ -17,6 +17,7 @@ function ObjetoAnimado() {
       // 1. Traslación: Mover el cubo en una trayectoria circular
       meshRef.current.position.x = Math.sin(elapsedTime) * 2;
       meshRef.current.position.z = Math.cos(elapsedTime) * 2;
+      meshRef.current.position.y = Math.sin(elapsedTime) * 2;
 
       // 2. Rotación: Rotar continuamente sobre los ejes X e Y
       meshRef.current.rotation.x += 0.01;
