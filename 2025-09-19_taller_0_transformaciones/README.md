@@ -81,10 +81,7 @@ transform = np.dot(trans_matrix, np.dot(scale_matrix, rot_matrix))
 - Animación basada en `frameCount` y funciones trigonométricas
 
 #### Demostración:
-<video width="600" controls>
-  <source src="Videos/processing2D.mp4" type="video/mp4">
-  Tu navegador no soporta videos HTML5.
-</video>
+![Processing 2D Demo](Videos/processing2D.gif)
 
 #### Código destacado:
 ```processing
@@ -123,10 +120,7 @@ void draw() {
 - Iluminación para visualización 3D
 
 #### Demostración:
-<video width="600" controls>
-  <source src="Videos/processing3D.mp4" type="video/mp4">
-  Tu navegador no soporta videos HTML5.
-</video>
+![Processing 3D Demo](Videos/processing3D.gif)
 
 #### Código destacado:
 ```processing
@@ -175,11 +169,7 @@ Implementación moderna usando React Three Fiber que proporciona un enfoque decl
 - Ayudantes visuales (ejes y grid)
 
 #### Demostración:
-<!-- Video del proyecto Three.js - agregar cuando esté disponible -->
-<video width="600" controls>
-  <source src="Videos/threejs.mp4" type="video/mp4">
-  Tu navegador no soporta videos HTML5.
-</video>
+![Three.js Demo](Videos/threejs.gif)
 
 #### Código destacado:
 ```jsx
