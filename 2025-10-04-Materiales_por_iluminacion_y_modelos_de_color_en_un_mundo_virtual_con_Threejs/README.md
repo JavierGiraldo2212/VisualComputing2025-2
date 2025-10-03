@@ -320,43 +320,129 @@ npm run dev
 
 ---
 
-## 🖼️ **Capturas de Pantalla Obligatorias**
+## 🖼️ **Galería Visual del Proyecto**
 
-### **Vista Perspectiva - Iluminación Normal**
-![Vista Perspectiva](renders/perspective_normal_lighting.png)
-*Demostración de materiales PBR bajo iluminación estándar con cámara perspectiva*
+### **📸 Capturas de Pantalla Técnicas**
 
-### **Vista Ortográfica - Análisis Técnico**
-![Vista Ortográfica](renders/orthographic_technical_view.png)
-*Comparación técnica de materiales sin distorsión perspectiva*
+#### **1. 🎯 Vista Perspectiva - Showroom Principal**
+![Vista Perspectiva Showroom](renders/01_perspective_showroom_view.png)
 
-### **Comparación de Materiales**
-![Materiales PBR](renders/materials_comparison.png)
-*Diferentes respuestas de aluminio, goma, pintura metálica y vidrio*
+**Descripción**: Captura desde cámara perspectiva mostrando los 3 vehículos en formación de carrera bajo iluminación normal. Esta imagen demuestra:
+- **Profundidad natural** y dramatismo visual de la cámara perspectiva
+- **Materiales PBR** en acción: reflejos metálicos, superficies mate de goma, transparencias de vidrio
+- **Escalado coherente** de los 3 modelos GLB (Jaguar rojo, Corvette azul, GTR verde)
+- **Iluminación multi-punto** con sombras PCF suaves y reflejos HDRI
+- **Shader de damero** en el suelo proporcionando referencia de escala
 
-### **Modos de Iluminación**
-![Modos de Luz](renders/lighting_modes_comparison.png)
-*4 presets: Normal, Cálido, Frío, Intenso*
+#### **2. 📐 Vista Ortográfica - Análisis Técnico**
+![Vista Ortográfica Técnica](renders/02_orthographic_technical_analysis.png)
 
-### **Shaders Procedurales**
-![Shaders](renders/shaders_showcase.png)
-*Damero, bandas y ruido simplex en acción*
+**Descripción**: Misma escena desde cámara ortográfica para análisis técnico sin distorsión perspectiva. Permite observar:
+- **Proporciones exactas** entre vehículos y elementos de la escena
+- **Comparación directa** de acabados superficiales sin efectos de profundidad
+- **Mediciones precisas** de espaciado y distribución de objetos
+- **Evaluación objetiva** de la respuesta de materiales a la iluminación
+- **Ideal para documentación técnica** y análisis de implementación
+
+#### **3. 🎨 Comparación de Materiales PBR**
+![Materiales PBR Detalle](renders/03_pbr_materials_closeup.png)
+
+**Descripción**: Acercamiento detallado mostrando los 4 tipos de materiales implementados:
+- **🔩 Aluminio (Rines)**: Metalness 0.9, Roughness 0.1 - Reflejos especulares intensos
+- **🛞 Goma (Neumáticos)**: Metalness 0.0, Roughness 0.9 - Superficie completamente mate
+- **🎭 Pintura Metálica**: Metalness 0.9, Roughness 0.1 - Brillo metálico con color saturado
+- **🪟 Vidrio (Ventanas)**: Transparencia 70%, reflejos ambientales y transmisión de luz
+- **Mapas de textura** visibles: normal maps creando micro-relieve realista
+
+#### **4. 💡 Presets de Iluminación Comparativa**
+![Modos de Iluminación](renders/04_lighting_modes_showcase.png)
+
+**Descripción**: Composición de 4 paneles mostrando cada preset de iluminación:
+- **🌟 Normal**: Iluminación balanceada de estudio (Exposure 2.0, fondo gris)
+- **🌅 Cálido**: Tonos dorados de atardecer (Key dorada, fondo cálido)
+- **🌙 Frío**: Ambiente nocturno cyberpunk (Key azul, fondo oscuro)
+- **⚡ Intenso**: Máxima iluminación de estudio (todas las luces al máximo)
+- **Respuesta diferencial** de materiales PBR a cada condición lumínica
+
+#### **5. 🎭 Shaders Procedurales en Acción**
+![Shaders Procedurales](renders/05_procedural_shaders_detail.png)
+
+**Descripción**: Vista detallada de los 3 shaders procedurales implementados:
+- **📐 Damero (Suelo)**: Escala 12.0, colores #808080/#cccccc, patrón geométrico preciso
+- **🏁 Bandas (Muro)**: Escala 8.0, dirección vertical, efecto racing stripes sutil
+- **🌊 Ruido Simplex (Lateral)**: Escala 3.0, animado temporalmente, efecto atmosférico
+- **Integración sutil** que complementa sin competir con los materiales PBR principales
+- **Técnicas GLSL** visibles: floor(), sin(), múltiples octavas de ruido
 
 ---
 
-## 🎞️ **GIFs Animados Obligatorios**
+## � **Demostraciones Animadas (GIFs)**
 
-### **🔄 Cambio de Materiales bajo Distinta Luz**
-![Materiales Dinámicos](renders/materials_lighting_animation.gif)
-*Demostración de cómo los materiales PBR responden a cambios de iluminación (Tecla L)*
+### **� Respuesta Dinámica de Materiales a Iluminación**
+![Materiales vs Iluminación](renders/demo_01_materials_lighting_response.gif)
 
-### **📷 Alternancia Perspectiva ↔ Ortográfica**
-![Cambio de Cámaras](renders/camera_toggle_animation.gif)
-*Comparación visual entre ambas proyecciones (Tecla C)*
+**Demostración**: Ciclo completo de los 4 presets de iluminación (Tecla **L**) mostrando:
+- **Transiciones suaves** entre modos Normal → Cálido → Frío → Intenso → Normal
+- **Respuesta diferencial** de cada material:
+  - *Aluminio*: Reflejos que varían de intensos (modo intenso) a sutiles (modo frío)
+  - *Pintura metálica*: Cambios dramáticos en saturación y brillo
+  - *Goma*: Mantiene apariencia mate constante (sin metalness)
+  - *Vidrio*: Variaciones en transparencia y reflejos ambientales
+- **Cambios ambientales**: Fondos que complementan cada preset
+- **Tone mapping** adaptativo: Exposure automático para cada modo
+- **Duración**: ~8 segundos, loop infinito
 
-### **🎬 Movimiento Completo con Shaders Activos**
-![Animación Completa](renders/full_animation_showcase.gif)
-*Vehículos en movimiento, luces animadas y shaders procedurales (Teclas A+O+I)*
+### **📷 Comparación Técnica: Perspectiva vs Ortográfica**
+![Cambio de Cámaras](renders/demo_02_camera_projection_comparison.gif)
+
+**Demostración**: Alternancia entre proyecciones (Tecla **C**) evidenciando:
+- **Transición instantánea** manteniendo posición y orientación
+- **Diferencias perceptuales**:
+  - *Perspectiva*: Profundidad natural, dramatismo visual, reflejos realistas
+  - *Ortográfica*: Sin distorsión, proporciones exactas, análisis técnico
+- **Controles unificados**: OrbitControls funcionan en ambas proyecciones
+- **Aplicaciones prácticas**: Presentación vs documentación técnica
+- **Conservación de escala**: Mismo encuadre general en ambas vistas
+- **Duración**: ~6 segundos, alternancia cada 3 segundos
+
+### **🏁 Circuito Dinámico con Sistema Completo Activo**
+![Sistema Completo](renders/demo_03_full_system_showcase.gif)
+
+**Demostración**: Todas las animaciones simultáneas (Teclas **A+O+I**) mostrando:
+- **🎥 Cámara orbital**: Recorrido circular con ondulación vertical
+- **�️ Vehículos en movimiento**: Circuito lineal con loop infinito
+- **💡 Iluminación dinámica**: Variación sinusoidal de intensidad
+- **🎭 Shaders animados**: Material de ruido con evolución temporal
+- **Reflejos dinámicos**: Cambio continuo en superficies metálicas
+- **Sombras móviles**: Proyección variable según posición de luces
+- **Integración sistémica**: Todos los componentes funcionando armónicamente
+- **Duración**: ~15 segundos, múltiples ciclos de animación
+
+### **🎛️ Control Interactivo de Shaders Procedurales**
+![Control de Shaders](renders/demo_04_shader_intensity_control.gif)
+
+**Demostración**: Variación de intensidad de shaders (Tecla **S**) mostrando:
+- **3 modos de intensidad**: Normal → Intenso → Suave → Normal
+- **Parámetros dinámicos**:
+  - *Damero*: Escala 8.0 → 16.0 → 4.0 (fino → grueso)
+  - *Bandas*: Escala 12.0 → 24.0 → 6.0, Ancho 0.3 → 0.1 → 0.6
+  - *Ruido*: Mantiene animación temporal constante
+- **Efectos visuales**: Patrones más finos vs más amplios
+- **Aplicación práctica**: Ajuste estético según preferencias
+- **Duración**: ~9 segundos, transiciones suaves
+
+### **🌈 Modelo de Color CIELAB en Acción**
+![Paleta CIELAB](renders/demo_05_cielab_color_model.gif)
+
+**Demostración**: Rotación lenta de vehículos mostrando paleta RGB optimizada:
+- **Separación perceptual**: ΔE > 30 entre colores primarios
+- **Colores implementados**:
+  - *Jaguar*: Rojo deportivo #aa0000 (L*35, a*50, b*40)
+  - *Corvette*: Azul eléctrico #0033aa (L*25, a*15, b*-45)
+  - *GTR*: Verde racing #006600 (L*30, a*-35, b*25)
+- **Justificación técnica**: Alta diferenciación visual bajo cualquier iluminación
+- **Metales neutros**: Escala L*10-75 para acabados realistas
+- **Duración**: ~12 segundos, rotación completa 360°
 
 ---
 
