@@ -287,11 +287,7 @@ npm run dev
 2025-10-04-Materiales_por_iluminacion_y_modelos_de_color_en_un_mundo_virtual_con_Threejs/
 ├── README.md                          # Este documento
 ├── renders/                           # Screenshots y capturas
-│   ├── perspective_normal_lighting.png
-│   ├── orthographic_technical_view.png
-│   ├── materials_comparison.png
-│   ├── lighting_modes_comparison.png
-│   └── shaders_showcase.png
+│   └── vid_taller.gif                 # GIF demostrativo 
 ├── threejs/                           # Aplicación Three.js
 │   ├── src/
 │   │   ├── main.js                   # Código principal (1100+ líneas)
