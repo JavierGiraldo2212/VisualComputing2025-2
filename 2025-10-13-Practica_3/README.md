@@ -1,27 +1,36 @@
 # Animación de Pierna con Cinemática Directa en Unity
 
-En este punto se describe cómo se desarrolló la animación de una pierna en Unity utilizando **cinemática directa (Forward Kinematics, FK)**. Se partió de un modelo descargado desde SketchUp y se organizó la escena de acuerdo con el esquema mostrado en la imagen adjunta.[1]
+En este punto se describe cómo se desarrolló la animación de una pierna en Unity utilizando **cinemática directa (Forward Kinematics, FK)**. Se partió de un modelo descargado desde SketchUp y se organizó la escena de acuerdo con el esquema mostrado en la imagen adjunta.
 
 ## Estructura de la escena implementada
 
-Se definió la siguiente jerarquía para la escena:
-- Main Camera
-- Directional Light
-- Global Volume
-- SETUP_FK
-  - SetupFK_ANM_Epaule
-    - SetupFK_HIDE_Epaule
-      - SetupFK_SKN_Bras
-        - SetupFK_SKN_AvantBras
-  - SetupFK_MESH
-- Leg_FK_Controller
-- Camera
+La escena se organizó con la siguiente estructura jerárquica:
+
+```
+SampleScene
+├── Main Camera
+├── Directional Light
+├── Global Volume
+├── SETUP_FK
+│   ├── SetupFK_ANM_Epaule
+│   │   └── SetupFK_HIDE_Epaule
+│   │       └── SetupFK_SKN_Bras
+│   │           └── SetupFK_SKN_AvantBras
+│   └── SetupFK_MESH
+├── Leg_FK_Controller
+└── Camera
+```
+
+### Componentes configurados
+- **SETUP_FK:** Contiene la cadena ósea (`SetupFK_ANM_Epaule` → `SetupFK_HIDE_Epaule` → `SetupFK_SKN_Bras` → `SetupFK_SKN_AvantBras`) y la malla (`SetupFK_MESH`).
+- **Leg_FK_Controller:** Controlador responsable de aplicar las rotaciones FK a los huesos relevantes.
+- **Main Camera**, **Camera**, **Directional Light**, **Global Volume:** Elementos de escena utilizados en la configuración.
 
 Con esta estructura se garantizó que el controlador FK manipulara únicamente los huesos relevantes de la pierna.
 
 ## Metodología aplicada
 
-Se aplicó **cinemática directa** para calcular la pose final del sistema articulado de la pierna, realizando rotaciones locales de manera secuencial desde el hueso raíz (muslo) hasta el extremo (pie/punta).[1]
+Se aplicó **cinemática directa** para calcular la pose final del sistema articulado de la pierna, realizando rotaciones locales de manera secuencial desde el hueso raíz (muslo) hasta el extremo (pie/punta).
 
 - Se definió un control explícito: el ángulo de cada articulación se asignó directamente mediante las variables `musloZ`, `gemeloZ`, `pieZ` y `puntaZ`.
 - No se utilizó resolución automática de posición final; cada segmento siguió el ángulo especificado por código.
@@ -31,7 +40,7 @@ Se aplicó **cinemática directa** para calcular la pose final del sistema artic
 
 ### 1. LegFKController.cs
 
-Se implementó un controlador de cinemática directa para la pierna. Este script permitió asignar los huesos en el orden correcto (muslo, gemelo, pie, punta) y aplicar las rotaciones locales sobre el eje Z.[1]
+Se implementó un controlador de cinemática directa para la pierna. Este script permitió asignar los huesos en el orden correcto (muslo, gemelo, pie, punta) y aplicar las rotaciones locales sobre el eje Z.
 
 - La función principal `AplicarFK()` rotó directamente los huesos según los ángulos:
   ```csharp
@@ -101,11 +110,6 @@ SampleScene
 - **gancho:** Nodo al que se añadió el **Two Bone IK Constraint** para controlar el movimiento del gancho final.
 - **gancho_target:** Objetivo (target) para la posición final del gancho que puede moverse durante la ejecución.
 - **gancho_hint:** Nodo hint opcional para ajuste fino del ángulo del codo (en el brazo de la grúa).
-
-Se incluyeron imágenes de referencia del proyecto para la estructura visual y detalles:
-- ![Inspector de Crane][1]
-- ![Inspector de gancho][2]
-- ![Jerarquía de la escena][3]
 
 ## Metodología aplicada (Cinemática Inversa)
 
@@ -208,4 +212,4 @@ La lógica esencial la resolvió Unity; el cálculo matemático de ángulos est�
 
 ## Resultado final
 
-![animación final grua]()
+![animación final grua](GIFs/GRUA.gif)
