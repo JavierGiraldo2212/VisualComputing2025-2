@@ -212,4 +212,4 @@ La lógica esencial la resolvió Unity; el cálculo matemático de ángulos est�
 
 ## Resultado final
 
-![animación final grua](GIFs/GRUA.gif)
+![animación final grua](GIFs/CRANE.gif)
