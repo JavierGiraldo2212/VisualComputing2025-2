@@ -1,0 +1,18 @@
+body { 
+    margin: 0; 
+    overflow: hidden; 
+}
+
+/* Estilo para las instrucciones en pantalla */
+#ui {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: white;
+    font-family: sans-serif;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 10px 20px;
+    border-radius: 8px;
+    pointer-events: none; /* Permite hacer clic a través del texto */
+    user-select: none;    /* Evita que se seleccione el texto al arrastrar */
+}

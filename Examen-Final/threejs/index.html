@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Examen Final - three.js</title>
+    
+    <link rel="stylesheet" href="src/style.css">
+</head>
+<body>
+    
+    <div id="ui">
+        <h2>Maloka 3D</h2>
+        <p>Presiona la tecla <strong>"C"</strong> para cambiar la cámara.</p>
+        <p>Vista actual: <span id="vista-nombre">Principal</span></p>
+    </div>
+
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+            }
+        }
+    </script>
+
+    <script type="module" src="src/main.js"></script>
+
+</body>
+</html>
