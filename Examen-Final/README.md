@@ -7,7 +7,30 @@
 
 ## Punto 1 – Python
 
-### Filtros
+### Análisis de resultados
+
+#### Filtros básicos
+##### Filtro de suavizado gaussiano
+- La imagen parece estar "fuera de foco" o vista a través de un vidrio empañado.
+- La textura fina del animal (como los pelos individuales del pelaje o los bigotes) desaparece y se mezcla con los colores vecinos.
+- Este tipo de filtro elimina el "ruido" y los detalles pequeños, dejando solo las formas y colores generales.
+
+##### Filtro de realce de bordes (sharpening)
+- La imagen se vuelve más granulada y con un contraste agresivo.
+- Las manchas del jaguar y los contornos de la figura se separan drásticamente del fondo. Sin embargo, es posible que la imagen se vea un poco "granulada" o artificial.
+- Este filtro exagera los cambios de luz para hacer que los límites de los objetos sean inconfundibles.
+
+#### Canales de color RGB
+- Canal Rojo: Se ve brillante, es el que más tiene peso en la imagen del jaguar. Esto sucede dado que el color amarillo del jaguar se forma con mucha luz roja. Por lo tanto, el sensor capta valores altos en este canal para la piel del animal.
+- Canal Verde: Este canal también se ve claro, dado que el amarillo en las imagenes es una mezcla de colores rojo y verde. Además, las plantas reflejan verde, por lo que el fondo vegetal también tiene intensidad media-alta aquí.
+- Canal Azul: El color amarillo es, por definición, opuesto al azul. El pelaje absorbe la luz azul y refleja la roja + verde. Por tanto, hay poca "información azul" en la imagen del animal, resultando en píxeles oscuros. Este es el canal más oscuro.
+
+#### Operaciones morfológicas
+- Erosión: El algoritmo recorre la imagen y reduce el perímetro de las zonas blancas. Al reducirse el blanco (el pelaje), las manchas negras y el fondo se ven más grandes y gruesas. Si hubiera pequeños puntos de ruido blanco, desaparecerían.
+- Dilatación: El algoritmo expande las zonas blancas hacia afuera. Al expandirse el blanco (el pelaje), las manchas negras se hacen más pequeñas o incluso desaparecen si son muy finas. Esto sirve para "rellenar" agujeros negros dentro de un objeto blanco.
+
+### Evidencias - GIFS
+#### Filtros
 
 En este módulo se desarrollaron scripts de visión artificial para el procesamiento de imágenes de especies en vía de extinción (en este caso se usó un jaguar), implementando filtros espaciales para la manipulación de frecuencias. El **filtro de suavizado gaussiano** con un kernel de 25x25 píxeles generó un efecto visual similar a ver la imagen "fuera de foco" o a través de un vidrio empañado, eliminando efectivamente el ruido y los detalles finos —como los pelos individuales del pelaje y los bigotes— que desaparecieron mezclándose con los colores vecinos, preservando únicamente las formas y colores generales. Por otro lado, el **filtro de realce de bordes (sharpening)**, implementado mediante un kernel de convolución específico, produjo una imagen con mayor granularidad y contraste agresivo, haciendo que las manchas características del jaguar y los contornos de su figura se separaran drásticamente del fondo, exagerando los cambios de luminosidad para hacer que los límites de los objetos sean inconfundibles.
 
@@ -15,7 +38,7 @@ En este módulo se desarrollaron scripts de visión artificial para el procesami
   <img src="python/gifs/animacion_filtros.gif" alt="Animación de Filtros" width="60%">
 </p>
 
-### Análisis de Canales de Color
+#### Canales de Color
 
 El análisis independiente de los canales RGB reveló información valiosa sobre la composición cromática de la imagen del jaguar. El **canal rojo** mostró la mayor intensidad, reflejando que el color amarillo característico del pelaje se forma principalmente con una alta contribución de luz roja captada por el sensor. El **canal verde** también presentó valores de intensidad considerables, confirmando que el amarillo en imágenes digitales es una mezcla de rojo y verde, mientras que el fondo vegetal reflejó intensidad media-alta en este canal como es esperado para elementos de vegetación. El **canal azul** resultó ser el más oscuro, dado que el color amarillo es, por definición, complementario al azul, lo que significa que el pelaje absorbe la luz azul y refleja principalmente la combinación rojo-verde, resultando en píxeles oscuros que proporcionan poca "información azul" en la representación del animal.
 
@@ -23,7 +46,7 @@ El análisis independiente de los canales RGB reveló información valiosa sobre
   <img src="python/gifs/animacion_canalesRGB.gif" alt="Animación de canales RGB" width="60%">
 </p>
 
-### Transformaciones Morfológicas
+#### Transformaciones Morfológicas
 
 Se aplicaron transformaciones morfológicas sobre la imagen binarizada (obtenida mediante un umbral de 127) para analizar su estructura geométrica utilizando un kernel cuadrado de 5x5 píxeles. La operación de **erosión** redujo sistemáticamente el perímetro de las zonas blancas representando el pelaje del jaguar, haciendo que las manchas negras y el fondo se vieran más grandes y gruesas, demostrando su efectividad para eliminar pequeños puntos de ruido blanco y adelgazar estructuras mediante un proceso que "come" o reduce las áreas claras. Por su parte, la **dilatación** expandió las zonas blancas hacia el exterior, reduciendo el tamaño de las manchas negras o incluso haciéndolas desaparecer si eran muy finas, demostrando su utilidad para "rellenar" agujeros negros dentro de objetos blancos, una técnica fundamental para la limpieza y segmentación de objetos en aplicaciones de visión por computador que facilita la identificación de estructuras continuas.
 
